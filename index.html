@@ -54,7 +54,7 @@
                     <input id="class-value" class="inp-style inp-width" value="1">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span id="add-class">+</span> <span id="minus-class">-</span> </p>
+                    <p> <span onclick="handleBooking('class',true)" id="add-class">+</span> <span onclick="handleBooking('class',false)" id="minus-class">-</span> </p>
                 </div>
             </div>
             
@@ -64,16 +64,16 @@
                     <input id="economy-value" class="inp-style inp-width"  value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span id="add-event">+</span> <span id="minus-event">-</span> </p>
+                    <p> <span onclick="handleBooking('economy',true)" id="add-event">+</span> <span onclick="handleBooking('economy',false)" id="minus-event">-</span> </p>
                 </div>
             </div>
             <div class="calculations">
                 <div class="amount">
                     <div class="left">
-                        <p>Subtotal</p>
+                        <p >Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p >$ <span id="sub-total">500</span></p>
                     </div>
                 </div>
 
@@ -82,7 +82,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p>$<span id="vat"></span>50</p>
                     </div>
                 </div>
                 <hr>
@@ -91,7 +91,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p>$<span id="grand-total"></span>550</p>
                     </div>
                 </div>
             </div>
@@ -105,32 +105,8 @@
     </section>
 
     <!--Thank You-->
+<script src="main.js"></script>
 
-    <script>
-        //first class event
-        const event = document.getElementById("add-class");
-        event.addEventListener('click', function(){
-        const classValue = document.getElementById("class-value");
-        const qtyValue = parseInt(classValue.value);
-        const totalQtyValue = qtyValue + 1;
-        classValue.value = totalQtyValue;
-        const totalAmount = totalQtyValue * 10;
-        document.getElementById("class-total").innerText = `$${totalAmount}`;
-
-})
-     //economy event
-     const event = document.getElementById("minus-class");
-        event.addEventListener('click', function(){
-        const classValue = document.getElementById("class-value");
-        const qtyValue = parseInt(classValue.value);
-        const totalQtyValue = qtyValue + 1;
-        classValue.value = totalQtyValue;
-        const totalAmount = totalQtyValue * 10;
-        document.getElementById("class-total").innerText = `$${totalAmount}`;
-
-})
-
-    </script>
 </body>
 
 </html>
